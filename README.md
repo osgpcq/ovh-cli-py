@@ -1,5 +1,5 @@
 #ovh-cli.py
-ovh-cli in python.
+OVH Python command-line interface.
 
 Extract informations from OVH.
 
@@ -14,4 +14,4 @@ Extract informations from OVH.
 
 
 # History
-Still in quick & dirty dev fase!
+Still in quick & really dirty dev phase!

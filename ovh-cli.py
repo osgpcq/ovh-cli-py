@@ -118,24 +118,28 @@ parser = argparse.ArgumentParser(description="https://github.com/osgpcq/ovh-cli-
 parser.add_argument("--client",               default="exo",       help="Config file selection")
 parser.add_argument("--credentials",          action="store_true", help="List credentials")
 parser.add_argument("--debug",                action="store_true", help="Debug information")
+parser.add_argument("--ips",                  action="store_true", help="List ips")
+parser.add_argument("--reverse",              action="store_true", help="List ips reverse")
 parser.add_argument("--json",                 action="store_true", help="JSON output")
 parser.add_argument("--servers",              action="store_true", help="List servers")
 parser.add_argument("--serviceinfos",         action="store_true", help="List serviceinfos")
 parser.add_argument("--noverbose",            action="store_true", default=False, help="Verbose")
 args = parser.parse_args()
 
-config_file="./ovh-"+args.client+".conf"
+config_file='./config-'+args.client+'.conf'
 if os.path.isfile(config_file):
   client = ovh.Client(config_file=config_file)
 else:
   sys.exit('Configuration file not found!')
 # Print nice welcome message
-print("Welcome",client.get('/me')['firstname']+",")
+print('Welcome',client.get('/me')['firstname']+",")
 #
 if (args.credentials):
   ovh_credentials()
 if (args.servers):
   ovh_servers()
+if (args.ips):
+  ovh_ips()
 #############################################################################
 #############################################################################
 #############################################################################
